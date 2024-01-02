@@ -19,7 +19,7 @@ go build main.go
 Examples
 The following commands can be used to test different Graph API endpoints:
 
-shell
+
 ```
 ./main -endpoint https://graph.microsoft.com/v1.0/identityProtection/riskyUsers | jq
 ```
