@@ -5,7 +5,7 @@ Test Microsoft Graph API Endpoints
 **Registering Your Application**
 
 To use the Graph-API Explorer, first register your application in Azure Active Directory.
-Obtain the necessary credentials (Client ID, Client Secret, Tenant ID) and set the required permissions for your application.
+update the necessary credentials in the config file (Client ID, Client Secret, Tenant ID) and set the required permissions for your application.
 
 **Installatio**
 Clone this repository and build the project:
