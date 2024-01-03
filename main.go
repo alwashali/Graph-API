@@ -31,6 +31,7 @@ func main() {
 	// Define the flags
 	endpoint := flag.String("endpoint", "", "API endpoint URL eg. /users")
 	isPOST := flag.Bool("post", false, "Use POST Method")
+	postData := flag.String("data", "", "POST data in JSON format")
 
 	flag.Parse()
 
@@ -52,7 +53,7 @@ func main() {
 		panic("Missing informaiton in the config.yaml file")
 	}
 
-	logs := fetchlogs(*endpoint, *isPOST)
+	logs := fetchlogs(*endpoint, *postData, *isPOST)
 	fmt.Println(logs)
 
 }
@@ -68,14 +69,15 @@ func configVerify(c config) error {
 	return nil
 }
 
-func fetchlogs(endpoint string, isPOST bool) string {
+func fetchlogs(endpoint string, data string, isPOST bool) string {
 
 	token := "Bearer " + getToken()
 
 	req := &http.Request{}
 
 	if isPOST {
-		req, _ = http.NewRequest("POST", endpoint, nil)
+		req, _ = http.NewRequest("POST", endpoint, strings.NewReader(data))
+		fmt.Println(data)
 	} else {
 		req, _ = http.NewRequest("GET", endpoint, nil)
 	}
