@@ -8,6 +8,7 @@ To use the Graph-API Explorer, first register your application in Azure Active D
 update the necessary credentials in the config file (Client ID, Client Secret, Tenant ID) and set the required permissions for your application.
 
 **Installatio**
+
 Clone this repository and build the project:
 ```
 git clone https://github.com/alwashali/Graph-API.git
@@ -16,7 +17,7 @@ go build main.go
 ```
 
 
-Examples
+**Examples**
 The following commands can be used to test different Graph API endpoints:
 
 
