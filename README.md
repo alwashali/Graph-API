@@ -34,3 +34,37 @@ The following commands can be used to test different Graph API endpoints:
 ```
 
 Replace the endpoint URL with your desired Graph API endpoint to test other functionalities.
+
+---
+
+## Use curl 
+
+
+**Set Credentilas**
+
+```
+CLIENT_ID="your-client-id"
+CLIENT_SECRET="your-client-secret"
+TENANT_ID="your-tenant-id"
+```
+
+**Request Token**
+
+```
+response=$(curl -s -X POST "https://login.microsoftonline.com/$TENANT_ID/oauth2/v2.0/token" \
+     -H "Content-Type: application/x-www-form-urlencoded" \
+     -d "client_id=$CLIENT_ID" \
+     -d "scope=https://graph.microsoft.com/.default" \
+     -d "client_secret=$CLIENT_SECRET" \
+     -d "grant_type=client_credentials");token=$(echo $response | jq -r '.access_token')
+
+```
+
+**Test Endpoints**
+
+```
+curl -H "Authorization: Bearer $token" \
+     -H "Content-Type: application/json" \
+     https://graph.microsoft.com/v1.0/users
+```
+
