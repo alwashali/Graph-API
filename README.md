@@ -29,4 +29,8 @@ The following commands can be used to test different Graph API endpoints:
 ./main -endpoint https://graph.microsoft.com/v1.0/users | jq
 ```
 
+```
+./main -post -endpoint https://graph.microsoft.com/v1.0/security/runHuntingQuery -data '{"Query": "EmailEvents | take 1 "}' | jq
+```
+
 Replace the endpoint URL with your desired Graph API endpoint to test other functionalities.
