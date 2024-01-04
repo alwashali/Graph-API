@@ -77,7 +77,7 @@ func fetchlogs(endpoint string, data string, isPOST bool) string {
 
 	if isPOST {
 		req, _ = http.NewRequest("POST", endpoint, strings.NewReader(data))
-		fmt.Println(data)
+
 	} else {
 		req, _ = http.NewRequest("GET", endpoint, nil)
 	}
@@ -97,10 +97,9 @@ func fetchlogs(endpoint string, data string, isPOST bool) string {
 	}
 	handleError(err)
 
-	alertsJson, err := ioutil.ReadAll(resp.Body)
+	logs, err := ioutil.ReadAll(resp.Body)
 	defer resp.Body.Close()
-	fmt.Println(string(alertsJson))
-	return string(alertsJson)
+	return string(logs)
 
 }
 
