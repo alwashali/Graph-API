@@ -59,6 +59,7 @@ response=$(curl -s -X POST "https://login.microsoftonline.com/$TENANT_ID/oauth2/
      -d "grant_type=client_credentials");token=$(echo $response | jq -r '.access_token')
 
 ```
+For office365 management activity, the scope is https://manage.office.com/.default
 
 **Test Endpoints**
 
